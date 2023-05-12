@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Практические работы</title>
+    <link rel="stylesheet" href="css\style.css" type="text/css" />
+    </head>
+<body background="kod.png">
+   <div id="basic">
+    <header >
+     <!-- Верхнее меню сайта -->
+    <div id="top-menu">
+        <div class="bg-1">
+            <ul>
+            <li><a href="index.html" ><b>Вступление</b></a></li>
+            <li><a href="2.html" ><b>Первое знакомство</b></a></li>
+            <li><a href="3.html"><b>Классы и типы</b></a></li>
+            <li><a href="4.html" ><b>Основные области C#</b></a></li>
+            <li><a href="5.html" ><b>Свяжитесь с нами</b></a></li>   
+            </ul>
+        </div>
+        </div>
+    </header>  
+     <style>
+   a { 
+    text-decoration: none;
+   } 
+  </style>
+  <script type="text/javascript">
+  function animateText(id, text, i) {
+    document.getElementById(id).innerHTML = text.substring(0, i);
+    i++;
+    setTimeout("animateText('" + id + "','" + text + "'," + i + ")", 100);
+  }
+</script>
+<big>
+    <h1><p align="center">
+<body onload = 'animateText("dynamic-text", "Практические работы", 0);'>
+    <span id = 'dynamic-text'></span>
+</body>
+</p></h1></big>
+<script> 
+    document.onmousedown = function (e) {
+        e = e || window.event;
+        var b = (e.which ? (e.which < 2) : (e.button < 2));
+        if (!b)return false;
+    };
+    document.oncontextmenu = function (e) {
+        return false
+    };
+
+    function preventSelection(e) {
+        var preventSelection = false;
+
+        function addHandler (e, event, handler) {
+            if (e.attachEvent) e.attachEvent ('on' + event, handler);
+            else if (e.addEventListener) e.addEventListener (event, handler, false);
+        }
+
+        function removeSelection () {
+            if(window.getSelection) {
+                window.getSelection() .removeAllRanges();
+            }
+            else if (document.selection && document.selection.clear)
+                document.selection.clear();
+        }
+        addHandler (e, 'mousemove', function() {
+            if (preventSelection) removeSelection();
+        });
+        addHandler(e, 'mousedown', function (e) {
+            e = e || window.event;
+            var sender = e.target || e.srcElement;
+            preventSelection = !sender.tagName.match (/INPUT|TEXTAREA/i);
+        }); 
+        function killCtrlA (e) {
+            e = e || window.e
+            var sender = e.target || srcElement;
+            if (sender.tagName.match(/INPUT|TEXTAREA/i)) return;
+            var key = e.keyCode || e.which;
+            if ((e.ctrlKey && key == 'U'.charCodeAt(0)) ||  (e.ctrlKey && key == 'A'.charCodeAt(0)) || (e.ctrlKey && key =='S'.charCodeAt(0)))
+        {
+    removeSelection();
+    if (e.preventDefault) e.preventDefault();
+    else e.returnValue = false;
+}
+}
+addHandler(e, 'keydown', killCtrlA);
+addHandler(e, 'keyup', killCtrlA);
+}
+preventSelection(document);
+</script>
+<ol class="rounded">
+  <li><a href="F:\Диплом\Практические\ПР1\ПР 1.docx">Знакомство с Visual Studio</a></li>
+  <li><a href="F:\Диплом\Практические\ПР2\2.docx">Переменные в C#</a></li>
+  <li><a href="F:\Диплом\Практические\ПР3\3.docx">Вывод данных из консоли. Конвертация строки в число</a></li>
+  <li><a href="F:\Диплом\Практические\ПР4\4.docx">Операторы. Арифметические операции с числами</a></li>
+  <li><a href="F:\Диплом\Практические\ПР5\5.docx">Операции инкремента и декремента. Операторы отношений</a></li>
+  <li><a href="F:\Диплом\Практические\ПР6\6.docx">Конструкция if else</a></li>
+  <li><a href="F:\Диплом\Практические\ПР7\7.docx">Оператор Switch</a></li>
+  <li><a href="F:\Диплом\Практические\ПР8\8.docx">Цикл While</a></li>
+  <li><a href="F:\Диплом\Практические\ПР9\9.docx">Цикл For</a></li>
+  <li><a href="F:\Диплом\Практические\ПР10\10.docx">Ключевое слово Break</a></li>
+  <li><a href="F:\Диплом\Практические\ПР11\11.docx">Массивы</a></li>
+  <li><a href="F:\Диплом\Практические\Пр12\12.docx">Вывод массива</a></li>
+  <li><a href="F:\Диплом\Практические\Пр13\13.docx">Двумерный массив</a></li>
+</ol>
+</div>
+<div class="myclr"></div>
+         
+   <!-- Подвал -->
+<div id="podval"> 
+            <div class="yellow"></div>
+            <div class="p1"><p align="center"> denpashenko@mail.ru </div>
+             <div class="p2"> Телефон +7 903-033-40-00
+        </div>
+        <div class="myclr"></div>
+</html>
