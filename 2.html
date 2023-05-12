@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Язык программирования "C#"</title>
+  <link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+<body background="kod.png">
+   <div id="basic">
+    <header >
+	 <!-- Верхнее меню сайта -->
+    <div id="top-menu">
+        <div class="bg-1">
+            <ul>
+            <li><a href="index.html"><b>Вступление</b></a></li>
+            <li><a href="3.html"><b>Классы и типы</b></a></li>
+            <li><a href="4.html"><b>Основные области C#</b></a></li>
+            <li><a href="5.html" ><b>Свяжитесь с нами</b></a></li>
+            <li><a href="6.html"><b>Практические работы</b></a></li>
+            </ul>
+        </div>
+        </div>
+        </header> 
+    <!-- Основной текст-->
+    <style>
+   a { 
+    text-decoration: none; 
+   } 
+  </style>
+  <script> document.oncontextmenu = test; function test() { return false;
+} </script>
+<script> 
+    document.onmousedown = function (e) {
+        e = e || window.event;
+        var b = (e.which ? (e.which < 2) : (e.button < 2));
+        if (!b)return false;
+    };
+    document.oncontextmenu = function (e) {
+        return false
+    };
+
+    function preventSelection(e) {
+        var preventSelection = false;
+
+        function addHandler (e, event, handler) {
+            if (e.attachEvent) e.attachEvent ('on' + event, handler);
+            else if (e.addEventListener) e.addEventListener (event, handler, false);
+        }
+
+        function removeSelection () {
+            if(window.getSelection) {
+                window.getSelection() .removeAllRanges();
+            }
+            else if (document.selection && document.selection.clear)
+                document.selection.clear();
+        }
+        addHandler (e, 'mousemove', function() {
+            if (preventSelection) removeSelection();
+        });
+        addHandler(e, 'mousedown', function (e) {
+            e = e || window.event;
+            var sender = e.target || e.srcElement;
+            preventSelection = !sender.tagName.match (/INPUT|TEXTAREA/i);
+        }); 
+        function killCtrlA (e) {
+            e = e || window.e
+            var sender = e.target || srcElement;
+            if (sender.tagName.match(/INPUT|TEXTAREA/i)) return;
+            var key = e.keyCode || e.which;
+            if ((e.ctrlKey && key == 'U'.charCodeAt(0)) ||  (e.ctrlKey && key == 'A'.charCodeAt(0)) || (e.ctrlKey && key =='S'.charCodeAt(0)))
+        {
+    removeSelection();
+    if (e.preventDefault) e.preventDefault();
+    else e.returnValue = false;
+}
+}
+addHandler(e, 'keydown', killCtrlA);
+addHandler(e, 'keyup', killCtrlA);
+}
+preventSelection(document);
+</script>
+  <script type="text/javascript">
+  function animateText(id, text, i) {
+    document.getElementById(id).innerHTML = text.substring(0, i);
+    i++;
+    setTimeout("animateText('" + id + "','" + text + "'," + i + ")", 100);
+  }
+</script>
+
+<big>
+    <h1><p align="center">
+<body onload = 'animateText("dynamic-text", "Первое знакомство", 0);'>
+    <span id = 'dynamic-text'></span>
+</body>
+</big></p></h1>
+    <p><big><div class="shrift">Для первого знакомства с языком программирования традиционно используется программа "Hello, World". Вот ее пример на C#:</p>
+   <p align="center"><img src="Знакомство1.png" wight="200" height="200" align="center">
+</p>
+ <p>Программа "Hello, World" начинается с директивы using, которая ссылается на пространство имен System. Пространства имен позволяют иерархически упорядочивать программы и библиотеки C#. Пространства имен содержат типы и другие пространства имен. Например, пространство имен System содержит несколько типов (в том числе используемый в нашей программе класс Console) и несколько других пространств имен, таких как IO и Collections. Директива using, которая ссылается на пространство имен, позволяет использовать типы из этого пространства имен без указания полного имени. Благодаря директиве using в коде программы можно использовать сокращенное имя Console.WriteLine вместо полного варианта System.Console.WriteLine.</p>
+
+<p>Класс Hello, объявленный в программе "Hello, World", имеет только один член — это метод с именем Main. Метод Main объявлен с модификатором static. Методы экземпляра могут ссылаться на конкретный экземпляр объекта, используя ключевое слово this, а статические методы работают без ссылки на конкретный объект. По стандартному соглашению точкой входа программы C# является статический метод с именем Main.</p>
+
+<p>Выходные данные программы создаются в методе WriteLine класса Console из пространства имен System. Этот класс предоставляется библиотеками стандартных классов, ссылки на которые компилятор по умолчанию добавляет автоматически.</p>
+<h2>Структура программы</h2>
+
+<p>Основными понятиями Организации в C# являются программы, пространства имен, типы, членыи сборки. В программе объявляются типы, которые содержат члены. Эти типы можно организовать в пространства имен. Примерами типов являются классы, структуры и интерфейсы. К членам относятся поля, методы, свойства и события. При компиляции программы на C# упаковываются в сборки. Сборки обычно имеют расширение .exe файла или .dll , в зависимости от того, реализуют ли они .exe или библиотекисоответственно.</p>
+
+<p>В качестве небольшого примера рассмотрим сборку, содержащую следующий код:</p>
+
+<p align="center"><img src="Знакомство2.png" wight="400" height="600" align="center">
+
+<p>Полное имя этого класса: Acme.Collections.Stack. Этот класс содержит несколько членов: поле с именем _top, два метода с именами Push и Pop, а также вложенный класс с именем Entry. Класс Entry, в свою очередь, содержит три члена: свойство с именем Next, свойство с именем Data и конструктор. StackЯвляется Stack классом. Он имеет параметр одного типа T, который замещается конкретным типом при использовании.</p>
+
+<p>Стек — это коллекция типа FILO (прибыл первым — обслужен последним). Новые элементы добавляются в верх стека. Удаляемый элемент исключается из верхней части стека. В предыдущем примере объявляется тип Stack, который определяет хранилище и поведение для стека. Можно объявить переменную, которая ссылается на экземпляр типа Stack для использования этой возможности.</p>
+
+<p>Сборки содержат исполняемый код в виде инструкций промежуточного языка (IL) и символьную информацию в виде метаданных. Перед выполнением JIT-компилятор среды CLR .NET преобразует код IL в сборке в код, зависящий от процессора.</p>
+
+<p>Сборка полностью описывает сама себя и содержит весь код и метаданные, поэтому в C# не используются директивы #include и файлы заголовков. Чтобы использовать в программе C# открытые типы и члены, содержащиеся в определенной сборке, вам достаточно указать ссылку на эту сборку при компиляции программы. Например, эта программа использует класс Acme.Collections.Stack из сборки acme.dll:</p>
+
+<p align="center"><img src="Знакомство3.png" wight="300" height="300" align="center">
+
+<p>Для компиляции программы вам потребуется создать ссылку на сборку, содержащую класс стека, определенный в примере выше.</p>
+
+<p>Программы C# можно хранить в нескольких исходных файлах. При компиляции программы C# все исходные файлы обрабатываются вместе, при этом они могут свободно ссылаться друг на друга. По сути, это аналогично тому, как если бы все исходные файлы были объединены в один большой файл перед обработкой. В C# никогда не используются опережающие объявления, так как порядок объявления, за редким исключением, не играет никакой роли. В C# нет требований объявлять только один открытый тип в одном исходном файле, а также имя исходного файла не обязано совпадать с типом, объявляемом в этом файле.</p>
+</big></div>
+<div id="follow">
+   <a href="#"><p align="right"><img src="345.png"></p></a>
+</div>
+
+</div>
+</body>
+
+<div class="myclr"></div>
+         
+   <!-- Подвал -->
+<div id="podval"> 
+            <div class="yellow"></div>
+            <div class="p1"><p align="center"> denpashenko@mail.ru </div>
+             <div class="p2"> Телефон +7 903-033-40-00
+        </div>
+        <div class="myclr"></div>
+</html>
